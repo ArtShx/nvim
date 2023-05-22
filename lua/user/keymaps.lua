@@ -30,6 +30,10 @@ keymap("n", "<C-w>", ":Bdelete<CR>", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 
+-- Quickly insert an empty new line without entering insert mode
+keymap("n", "<Leader>o", "o<ESC>", opts)
+keymap("n", "<Leader>O", "O<ESC>", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)

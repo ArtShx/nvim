@@ -11,21 +11,22 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-  },
+  -- update_focused_file = {
+  --   enable = true,
+  --   update_cwd = true,
+  --   update_root = true,
+  -- },
   renderer = {
     root_folder_modifier = ":t",
     icons = {
       glyphs = {
-        default = "",
-        symlink = "",
+        -- default = "",
+        -- symlink = "",
         folder = {
-          arrow_open = "",
-          arrow_closed = "",
+          -- arrow_open = "",
+          -- arrow_closed = "",
           default = "",
-          open = "",
+          -- open = "",
           empty = "",
           empty_open = "",
           symlink = "",
