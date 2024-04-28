@@ -8,40 +8,43 @@ if not snip_status_ok then
   return
 end
 
+local chars = require("user.chars")
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
-
+--
 --   פּ ﯟ   some other good icons
 local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
+  Text = chars.Numbers,
+  Method = chars.M,
+  Function = chars.f,
+  Constructor = chars.Dot,
+  Field = chars.Numbers,
+  Variable = "var",
+  Class = chars.C,
   Interface = "",
-  Module = "",
+  -- Module = chars.C,
+  Module = "module",
   Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
+  Unit = chars.GenCurrencySign,
+  Value = chars.GenCurrencySign,
+  Enum = chars.AZ,
+  Keyword = "k",
+  Snippet = chars.Scissor,
+  Color = chars.Paint,
+  Reference = "r",
+  File = chars.Folder,
+  Folder = chars.Folder,
+  EnumMember = chars.AZ,
+  Constant = chars.Star,
   Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Event = chars.LightBolt,
+  Operator = chars.GenCurrencySign,
+  TypeParameter = chars.GenCurrencySign,
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
