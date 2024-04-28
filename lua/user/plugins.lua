@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim", commit = "97a188a98b5a3a6f9b1b850799ac078faa17ab67" }
   -- use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" }
   use { "kyazdani42/nvim-web-devicons", commit = "563f3635c2d8a7be7933b9e547f7c178ba0d4352" }
+  -- Folders, git icons, also defines keymaps on TS
   use { "kyazdani42/nvim-tree.lua", commit = "7282f7de8aedf861fe0162a559fc2b214383c51c" }
   -- Visualize buffers, optionally LSP integration
   use { "akinsho/bufferline.nvim", commit = "83bf4dc7bff642e145c8b4547aa596803a8b4dc4" }
@@ -61,6 +62,15 @@ return packer.startup(function(use)
   use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
   use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
 	use { "folke/which-key.nvim" }
+
+	-- Telescope
+	use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+
+	-- Treesitter
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		version = "v0.9.2",
+	}
 
 	-- -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
@@ -86,20 +96,12 @@ return packer.startup(function(use)
  --  use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
  --  use {'neoclide/coc.nvim', branch = 'release'}
 
-	-- Telescope
-	use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
 
-	-- -- Treesitter
-	-- use {
-	-- 	"nvim-treesitter/nvim-treesitter",
-	-- 	commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac",
-	-- }
+  -- Surround selected cursor with quotes/parentheses/brackets/etc.
+  use { "https://github.com/tpope/vim-surround" }
 
- --  -- Surround selected cursor with quotes/parentheses/brackets/etc.
- --  use { "https://github.com/tpope/vim-surround" }
-
-	-- -- Git
-	-- use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
+	-- Git
+	use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
 
  --  -- Rust
  --  use 'simrat39/rust-tools.nvim'
