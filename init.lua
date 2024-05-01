@@ -17,6 +17,7 @@ require "user.gitsigns"
 
 require "user.cmp"
 require "user.lsp"
+require "user.notify"
 -- require "user.autopairs"
 -- require "user.project"
 -- require "user.autocommands"

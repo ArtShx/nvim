@@ -69,7 +69,7 @@ return packer.startup(function(use)
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		version = "v0.9.2",
+		tag = "v0.9.0",
 	}
 
   -- Surround selected cursor with quotes/parentheses/brackets/etc.
@@ -103,8 +103,10 @@ return packer.startup(function(use)
 
   -- Automatically highlighting other uses of word under cursor
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
- --  use {'neoclide/coc.nvim', branch = 'release'}
+  -- TODO: replace cmp with coc.nvim
+  -- use {'neoclide/coc.nvim', branch = 'release'}
 
+  use { 'rcarriga/nvim-notify', tag = "v3.13.4"}
  --  -- Rust
  --  use 'simrat39/rust-tools.nvim'
 

@@ -100,8 +100,8 @@ local mappings = {
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  -- ["w"] = { "<cmd>w!<CR>", "Save" },
+  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
@@ -199,8 +199,7 @@ local mappings = {
   },
   n = {
     name = "Utilities",
-    -- j = { "<cmd>%!jq .<cr>", "Format JSON " }
-    j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON " }
+    j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON" },
   }
 }
 
