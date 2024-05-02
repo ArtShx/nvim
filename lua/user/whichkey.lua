@@ -176,7 +176,7 @@ local mappings = {
   },
   s = {
     name = "Search",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    -- b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -185,6 +185,7 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     t = { "<cmd>Telescope live_grep<cr>", "Text" },
+    n = { "<cmd>Telescope notify<cr>", "Notification History" },
   },
 
   t = {
@@ -200,6 +201,9 @@ local mappings = {
   n = {
     name = "Utilities",
     j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON" },
+    s = { "<cmd>mksession! .session.vim<cr>", "Save Session" },
+    a = { "<cmd>source .session.vim<cr>", "Apply Session" },
+
   }
 }
 
