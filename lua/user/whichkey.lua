@@ -203,6 +203,7 @@ local mappings = {
     j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON" },
     s = { "<cmd>mksession! .session.vim<cr>", "Save Session" },
     a = { "<cmd>source .session.vim<cr>", "Apply Session" },
+    -- f = { "<cmd>!nautilus -w .<cr>", "Open Folder" },
 
   }
 }
