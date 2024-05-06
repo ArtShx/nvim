@@ -7,3 +7,5 @@
 - Auto close brackets
 - Move selected/yanked to terminal
 - Add shortcut/settings for running, maybe create a settings file for running the code + py env (python main.py, python main.py -i ... -o ...)
+- add snippets
+- optimize (consuming more ram than lunarvim setup);
