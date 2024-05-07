@@ -39,7 +39,8 @@ luac.out
 *.x86_64
 *.hex
 
+# Packer generated code
+**/packer_compiled.lua
 
-plugin/packer_compiled.lua
 # Working session
 .session.vim
