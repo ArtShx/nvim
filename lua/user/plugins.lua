@@ -102,8 +102,8 @@ return packer.startup(function(use)
 
   -- Automatically highlighting other uses of word under cursor
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
-  -- TODO: replace cmp with coc.nvim
-  use {'neoclide/coc.nvim', branch = 'release'}
+  use {'neoclide/coc.nvim', commit = '3dc6153a85ed0f185abec1deb972a66af3fbbfb4', run = 'npm ci'
+}
 
   use { 'rcarriga/nvim-notify', tag = "v3.13.4"}
  --  -- Rust
