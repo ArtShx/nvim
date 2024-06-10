@@ -2,5 +2,13 @@
   "rust-analyzer.enable": true,
   "rust-analyzer.inlayHints.typeHints.enable": true,
   "rust-analyzer.inlayHints.chainingHints.enable": true,
-  "rust-analyzer.inlayHints.parameterHints.enable": true
+  "rust-analyzer.inlayHints.parameterHints.enable": true,
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": false,
+    "title": "Docs",
+    "focusable": true,
+    "close": false,
+    "shadow": true
+  }
 }

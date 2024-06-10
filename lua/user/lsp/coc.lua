@@ -6,7 +6,7 @@ vim.opt.writebackup = false
 
 -- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 -- delays and poor user experience
-vim.opt.updatetime = 300
+vim.opt.updatetime = 200
 
 local keyset = vim.keymap.set
 
@@ -52,7 +52,8 @@ function _G.show_docs()
     if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
         vim.api.nvim_command('h ' .. cw)
     elseif vim.api.nvim_eval('coc#rpc#ready()') then
-        vim.fn.CocActionAsync('doHover')
+        -- vim.fn.CocActionAsync('doHover')
+        vim.fn.CocActionAsync('definitionHover')
     else
         vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
     end
@@ -121,10 +122,10 @@ vim.api.nvim_create_autocmd("FileType", {
 -- keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
 
 -- Remap <C-f> and <C-b> to scroll float windows/popups
----@diagnostic disable-next-line: redefined-local
--- local opts = {silent = true, nowait = true, expr = true}
--- keyset("n", "<C-f>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-f>"', opts)
--- keyset("n", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', opts)
+-- -@diagnostic disable-next-line: redefined-local
+local opts = {silent = true, nowait = true, expr = true}
+keyset("n", "<C-d>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-d>"', opts)
+keyset("n", "<C-u>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-u>"', opts)
 -- keyset("i", "<C-f>",
 --        'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" : "<Right>"', opts)
 -- keyset("i", "<C-b>",
