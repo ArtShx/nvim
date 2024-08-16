@@ -49,7 +49,7 @@ return packer.startup(function(use)
   -- Folders, git icons, also defines keymaps on TS
   use { "kyazdani42/nvim-tree.lua", commit = "7282f7de8aedf861fe0162a559fc2b214383c51c" }
   -- Visualize buffers, optionally LSP integration
-  use { "akinsho/bufferline.nvim", commit = "83bf4dc7bff642e145c8b4547aa596803a8b4dc4" }
+  use { "akinsho/bufferline.nvim", tag = "v4.6.1" }
   -- Enabled Bdelete and Bwipeout
 	use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
   -- Modifies the neovim statusline
@@ -64,12 +64,12 @@ return packer.startup(function(use)
 	use { "folke/which-key.nvim" }
 
 	-- Telescope
-	use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+  use { "nvim-telescope/telescope.nvim", tag = "0.1.8" }
 
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		tag = "v0.9.0",
+		tag = "v0.9.2",
 	}
 
   -- Surround selected cursor with quotes/parentheses/brackets/etc.

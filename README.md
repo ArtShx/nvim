@@ -5,7 +5,9 @@ My *Neovim* setup. Code originally inspired from [Neovim-from-schatch](https://g
 - nvim version: v0.9.0
 - python3
 - node: v19.8.1
-- TODO
+- fd-find
+- ripgrep
+- lazygit
 
 Clone this repo at `nvim` configuration path (make backup  of your current `nvim` directory if you want to keep it).
 ` git clone https://github.com/ArtShx/NeovimSetup.git ~/.config/nvim `
