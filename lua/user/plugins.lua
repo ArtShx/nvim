@@ -113,9 +113,9 @@ return packer.startup(function(use)
  --  use { "https://github.com/nvie/vim-flake8" }
  --  use {"ChristianChiarulli/swenv.nvim"}
  --  use {"stevearc/dressing.nvim"}
- --  use {"mfussenegger/nvim-dap-python"}
- --  use {"nvim-neotest/neotest"}
- --  use {"nvim-neotest/neotest-python"}
+  use {"mfussenegger/nvim-dap-python"}
+  use {"nvim-neotest/neotest", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+  use {"nvim-neotest/neotest-python"}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

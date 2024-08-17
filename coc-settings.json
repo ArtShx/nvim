@@ -15,5 +15,23 @@
     "focusable": true,
     "close": false,
     "shadow": true
-  }
+  },
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "diagnostic-languageserver.enable": true, // using null-ls instead
+  "diagnostic-languageserver.filetypes": {
+    "python": "pylint"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "python": "black"
+  },
+  "diagnostic.messageTarget": "float",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextFormat": "%code",
+  "diagnostic.checkCurrentLine": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "diagnostic.autoRefresh": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+
 }

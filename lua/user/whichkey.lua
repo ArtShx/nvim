@@ -99,6 +99,12 @@ local mappings = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
   },
+  d = {
+    name = "Tests",
+    m = { "<cmd>lua require('neotest').run.run()<cr>", "Test Method" },
+    -- M = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Test Method DAP" },
+    f = { "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", "Test Class" }
+  },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
   -- ["q"] = { "<cmd>q!<CR>", "Quit" },
@@ -203,8 +209,8 @@ local mappings = {
     j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON" },
     s = { "<cmd>mksession! .session.vim<cr>", "Save Session" },
     a = { "<cmd>source .session.vim<cr>", "Apply Session" },
-    -- f = { "<cmd>!nautilus -w .<cr>", "Open Folder" },
-
+    f = { "<cmd>Format<cr>", "Format file" },
+    i = { "<cmd>OR<cr>", "Format Imports" },
   }
 }
 

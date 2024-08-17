@@ -21,5 +21,6 @@ require "user.lsp"
 -- require "user.autopairs"
 -- require "user.project"
 -- require "user.autocommands"
-
 -- require "user.rust-tools"
+
+require "user.neotest"
