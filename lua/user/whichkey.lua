@@ -103,7 +103,9 @@ local mappings = {
     name = "Tests",
     m = { "<cmd>lua require('neotest').run.run()<cr>", "Test Method" },
     -- M = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Test Method DAP" },
-    f = { "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", "Test Class" }
+    f = { "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", "Test Class" },
+    o = { "<cmd>lua require('neotest').output_panel.toggle()<cr>", "Toggle output" },
+    c = { "<cmd>lua require('neotest').output_panel.clear()<cr>", "Clear output"}
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
