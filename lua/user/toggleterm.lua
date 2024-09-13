@@ -16,7 +16,8 @@ toggleterm.setup({
   persist_size = true,
   direction = "horizontal",
   close_on_exit = true,
-  shell = vim.o.shell,
+  -- shell = vim.o.shell,
+  shell = "powershell.exe",
   float_opts = {
     border = "curved",
     winblend = 0,
