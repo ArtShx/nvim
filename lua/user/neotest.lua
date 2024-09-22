@@ -6,7 +6,7 @@ require("neotest").setup({
         justMyCode = false,
         console = "integratedTerminal",
       },
-      args = { "--log-level", "DEBUG", "-s" },
+      args = { "-s" },
       runner = "pytest",
       python = "python.exe"
     })
