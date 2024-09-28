@@ -8,6 +8,7 @@ My *Neovim* setup. Code originally inspired from [Neovim-from-schatch](https://g
 - fd-find
 - ripgrep
 - lazygit
+- Font: CaskaydiaCove Nerd Font
 
 Clone this repo at `nvim` configuration path (make backup  of your current `nvim` directory if you want to keep it).
 ` git clone https://github.com/ArtShx/NeovimSetup.git ~/.config/nvim `

@@ -3,6 +3,8 @@ return {
   Cube = "",
   C = "©",
   Check = "✓",
+  Circle = "●",
+  Close = "",
   Dot = "·",
   Empty = "",
   f = "ƒ",
@@ -16,6 +18,7 @@ return {
   Paint = "",
   Scissor = "",
   Star = "★",
+  Recent = "",
    --   פּ ﯟ   
 
   del_folder = {
