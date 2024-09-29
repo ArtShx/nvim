@@ -132,3 +132,10 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+-- Custom snippets
+luasnip.add_snippets('python', {
+  luasnip.snippet('bb', {
+    luasnip.text_node('breakpoint()')
+  })
+})

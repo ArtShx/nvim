@@ -77,7 +77,7 @@ return packer.startup(function(use)
   use { "tpope/vim-surround", commit = "3d188ed2113431cf8dac77be61b842acb64433d9"}
 
 	-- Git
-	use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
+	use { "lewis6991/gitsigns.nvim", tag = "v0.9.0" }
 
 	-- -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }

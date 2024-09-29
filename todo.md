@@ -1,5 +1,4 @@
 # TODO
-- Snippet (breakpoint)
 - Add cursor's position relative to file module's/methods's;
 - Keep reviewiewing coc/LSP/completion configuration;
 - Nautlis shortcut
