@@ -20,11 +20,13 @@ local colors = {
   magenta  = '#c678dd',
   blue     = '#51afef',
   red      = '#ec5f67',
+  gray     = '#aeb6bf',
 }
 
 local diagnostics = {
 	"diagnostics",
-	sources = { "nvim_diagnostic" },
+	-- sources = { "nvim_diagnostic" },
+	sources = { "nvim_lsp" },
 	-- sections = { "error", "warn" },
 
   symbols = { error = ' ', warn = ' ', info = ' ' },
@@ -35,7 +37,7 @@ local diagnostics = {
   },
 	-- colored = false,
 	update_in_insert = false,
-	-- always_visible = true,
+	always_visible = false,
 }
 
 local diff = {
@@ -133,28 +135,104 @@ local fileformat = {
   }
 }
 
+local function CurrentFunctionName()
+  local ts_utils = require'nvim-treesitter.ts_utils'
+  local node_at_cursor = ts_utils.get_node_at_cursor()
+  while node_at_cursor do
+    if node_at_cursor:type() == 'function_definition' or node_at_cursor:type() == 'class_definition' then
+      local name_node = node_at_cursor:field('name')[1]
+      if name_node then
+        return vim.treesitter.get_node_text(name_node, 0)
+      end
+    end
+    node_at_cursor = node_at_cursor:parent()
+  end
+  return ''
+end
+
+local CurrentFunction = {
+  CurrentFunctionName, color={ fg=colors.white }
+}
+
+-- local function Path()
+--   -- Get the current file path
+--   local current_file = vim.fn.expand('%:p')
+--
+--   -- Get the root of the current working directory or project
+--   local project_root = vim.fn.expand('%:p:h')
+--
+--   -- Traverse up to the root using the pattern for `.git` directory or other project marker
+--   local git_root = vim.fn.finddir(".git/..", project_root .. ";")
+--
+--   -- If a root directory was found, compute relative path
+--   if git_root and git_root ~= "" then
+--     return vim.fn.fnamemodify(current_file, ':~:.')
+--   else
+--     -- If no project root is found, just return the relative path from the current working directory
+--     return vim.fn.expand('%')
+--   end
+-- end
+
+-- local windows = {
+--   'windows',
+--   show_filename_only = false,   -- Shows shortened relative path when set to false.
+--   show_modified_status = true, -- Shows indicator when the window is modified.
+--
+--   mode = 0, -- 0: Shows window name
+--             -- 1: Shows window index
+--             -- 2: Shows window name + window index
+--
+--   max_length = vim.o.columns * 9 / 10, -- Maximum width of windows component,
+--                                       -- it can also be a function that returns
+--                                       -- the value of `max_length` dynamically.
+--   color= {
+--     fg=colors.orange,
+--     bg=colors.orange,
+--     -- gui = 'bold'
+--   },
+--
+-- }
+
+local filename = {
+  'filename',
+  path = 1,
+  shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
+                           -- for other components. (terrible name, any suggestions?)
+  symbols = {
+    modified = '[+]',      -- Text to show when the file is modified.
+    readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
+    unnamed = '[No Name]', -- Text to show for unnamed buffers.
+    newfile = '[New]',     -- Text to show for newly created file before first write
+  },
+  color= {
+    fg=colors.gray,
+  },
+}
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = "onedark",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+    globalstatus = true,
+		-- component_separators = { left = "", right = "" },
+		-- section_separators = { left = "", right = "" },
+    -- section_separators = { left = '', right = '' },
+    -- component_separators = { left = '', right = '' },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
-		always_divide_middle = true,
+		-- always_divide_middle = true,
 	},
 	sections = {
-		-- lualine_a = { branch, diagnostics },
 		lualine_a = { branch },
 		lualine_b = { mode },
-		lualine_c = {diagnostics},
-		lualine_x = { diff, spaces, "encoding", filetype },
+		lualine_c = { filename, CurrentFunction },
+		lualine_x = { diagnostics, diff, filetype },
 		lualine_y = { location },
 		lualine_z = { progress },
 	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { "filename" },
+		lualine_c = {},
 		lualine_x = { "location" },
 		lualine_y = {},
 		lualine_z = {},
