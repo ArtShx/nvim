@@ -106,7 +106,8 @@ local mappings = {
     f = { "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", "Test Class" },
     o = { "<cmd>lua require('neotest').output_panel.toggle()<cr>", "Toggle output" },
     c = { "<cmd>lua require('neotest').output_panel.clear()<cr>", "Clear output"},
-    s = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop"}
+    s = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop"},
+    p = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Summary"},
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
@@ -114,7 +115,7 @@ local mappings = {
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy{previewer = true})<cr>",
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
@@ -135,6 +136,7 @@ local mappings = {
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+    L = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", "Blame" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
