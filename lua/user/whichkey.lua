@@ -91,6 +91,27 @@ local vmappings = {
   ["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
 }
 
+
+function attach_running_test()
+  local neotest = require("neotest")
+  local position_id = neotest.run.get_last_run()
+  -- local stat = neotest.status
+  -- print("stat")
+  -- print(vim.inspect(stat))
+  -- local posit = neotest.client.running_positions()
+  -- print(posit)
+  if position_id ~= nil then
+    -- TODO: need to check if process was completed or not
+    -- if completed, just open the output window
+    -- local out = neotest.Process(position_id)
+    -- local out = neotest.run.get_process(position_id)
+    -- print(out)
+    neotest.run.attach(position_id)
+  else
+    neotest.output.open({enter=true, short=false, auto_close=false})
+  end
+end
+
 local mappings = {
 
   ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
@@ -108,6 +129,7 @@ local mappings = {
     c = { "<cmd>lua require('neotest').output_panel.clear()<cr>", "Clear output"},
     s = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop"},
     p = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Summary"},
+    l = { ":lua attach_running_test()<cr>", "Attach"},
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
