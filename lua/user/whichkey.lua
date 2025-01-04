@@ -211,7 +211,8 @@ local mappings = {
   },
   n = {
     name = "Utilities",
-    j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON" },
+    -- j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON" },
+    j = { "<cmd>%!python -m json.tool <cr>", "Format JSON" },
     s = { "<cmd>mksession! .session.vim<cr>", "Save Session" },
     a = { "<cmd>source .session.vim<cr>", "Apply Session" },
     f = { "<cmd>Format<cr>", "Format file" },
