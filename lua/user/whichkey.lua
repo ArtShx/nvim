@@ -10,6 +10,15 @@ local telescope_search = function (text)
   end
 end
 
+local yank_path = function(is_absolute)
+  -- TODO: yank absolute or relative of current buffer
+  return function()
+    vim.fn.setreg("", "ABC") -- saving ABC into register ""
+    -- vim.fn.expand("%")    -- relative
+    -- vim.fn.expand('%:p')  -- absolute
+  end
+end
+
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -185,6 +194,8 @@ local mappings = {
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+    Q = { "<cmd>lua require('telescope.actions').open_qflist()<cr>", "Quickfix" },
+    -- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy{previewer = true})<cr>",
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
@@ -223,6 +234,8 @@ local mappings = {
     B = { telescope_search("breakpoint"), "Find breakpoints in all files." },
     t = { ":/TODO<cr>", "Find TODO in file." },
     T = { telescope_search("TODO"), "Find TODOs in all files." },
+    y = { yank_path(false), "Copy relative path." },
+    Y = { telescope_search("TODO"), "Copy absolute path." },
   }
 }
 

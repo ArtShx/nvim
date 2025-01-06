@@ -37,6 +37,7 @@ local options = {
   -- guifont = "monospace:h17",               -- the font used in graphical neovim applications
   guifont = "cousine:h17",
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
+  -- endofline = false -- not working
 }
 
 for k, v in pairs(options) do
@@ -48,6 +49,7 @@ vim.opt.shortmess:append "c"                           -- don't give |ins-comple
 vim.opt.iskeyword:append "-"                           -- hyphenated words recognized by searches
 vim.opt.formatoptions:remove({ "c", "r", "o" })        -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")  -- separate vim plugins from neovim in case vim still in use
+-- vim.opt.endofline = false  -- not working
 --
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
