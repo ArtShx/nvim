@@ -93,10 +93,20 @@ local filetype = {
   color = { fg = colors.white, gui = 'bold' },
 }
 
+--- @param trunc_len number truncates component to trunc_len number of chars
+--- @param no_ellipsis boolean whether to disable adding '...' at end after truncation
+--- return function that can format the component accordingly
+local function trunc(trunc_len, no_ellipsis)
+  return function(str)
+       return str:sub(1, trunc_len) .. (no_ellipsis and '' or '...')
+  end
+end
+
 local branch = {
 	"branch",
   icon = "",
   color = { bg = colors.darkblue, fg = "#aaaaaa", gui = 'bold' },
+  fmt = trunc(10, false)
 }
 
 local location = {
