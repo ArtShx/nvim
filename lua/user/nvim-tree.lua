@@ -16,16 +16,19 @@ nvim_tree.setup {
     update_cwd = true,
     update_root = false,
   },
+  filters = {
+    dotfiles = true,
+  },
   renderer = {
     root_folder_modifier = ":t",
     icons = {
       glyphs = {
         folder = {
-          -- open = "",
+          open = "",
           arrow_open = "ˇ",
           arrow_closed = "",
           default = "",
-          open = "├",
+          -- open = "├",
           empty = "",
           empty_open = "",
           symlink = "",
