@@ -3,6 +3,13 @@ if not status_ok then
   return
 end
 
+local telescope = require("telescope.builtin")
+local telescope_search = function (text)
+  return function()
+    telescope.grep_string({ search = text })
+  end
+end
+
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -211,11 +218,11 @@ local mappings = {
   },
   n = {
     name = "Utilities",
-    j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON" },
-    s = { "<cmd>mksession! .session.vim<cr>", "Save Session" },
-    a = { "<cmd>source .session.vim<cr>", "Apply Session" },
-    f = { "<cmd>Format<cr>", "Format file" },
-    i = { "<cmd>OR<cr>", "Format Imports" },
+    f = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", "Find and replace"},
+    b = { ":/breakpoint()<cr>", "Find breakpoints in file." },
+    B = { telescope_search("breakpoint"), "Find breakpoints in all files." },
+    t = { ":/TODO<cr>", "Find TODO in file." },
+    T = { telescope_search("TODO"), "Find TODOs in all files." },
   }
 }
 

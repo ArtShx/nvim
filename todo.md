@@ -1,4 +1,10 @@
 # TODO
+- https://github.com/rebelot/kanagawa.nvim?tab=readme-ov-file - colorscheme
+- https://github.com/olivercederborg/poimandres.nvim - colorscheme
+- qflist:
+    - https://github.com/itchyny/vim-qfedit -> so you can edit qflist 
+    - https://github.com/kevinhwang91/nvim-bqf -> to make QF list work better and look better
+- single statusline when vsplit or neotest-summary
 - Keep reviewiewing coc/LSP/completion configuration;
 - Nautlis shortcut
 - when `<leader>f`, auto select the file is opened
