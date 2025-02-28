@@ -16,16 +16,11 @@
     "close": false,
     "shadow": true
   },
+  "pyright.enable": true,
   "python.formatting.provider": "black",
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
-  "diagnostic-languageserver.enable": true, // using null-ls instead
-  "diagnostic-languageserver.filetypes": {
-    "python": "pylint"
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-    "python": "black"
-  },
+  "python.linting.enabled": false,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": false,
   "diagnostic.messageTarget": "float",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextFormat": "%code",
@@ -33,5 +28,13 @@
   "suggest.triggerAfterInsertEnter": true,
   "diagnostic.autoRefresh": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
+  "python.analysis.typeCheckingMode": "basic",
+  "pyright.inlayHints.parameterTypes": false,
+  "python.linting.ignorePatterns": [
+    ".vscode/*.py",
+    "**/site-packages/**/*.py",
+    "**/__pycache__/**"
+  ],
+  "http.proxyStrictSSL": false
 
 }

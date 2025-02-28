@@ -1,12 +1,14 @@
 # TODO
-- Add cursor's position relative to file module's/methods's;
+- https://github.com/rebelot/kanagawa.nvim?tab=readme-ov-file - colorscheme
+- https://github.com/olivercederborg/poimandres.nvim - colorscheme
+- qflist:
+    - https://github.com/itchyny/vim-qfedit -> so you can edit qflist 
+    - https://github.com/kevinhwang91/nvim-bqf -> to make QF list work better and look better
+- single statusline when vsplit or neotest-summary
 - Keep reviewiewing coc/LSP/completion configuration;
 - Nautlis shortcut
 - when `<leader>f`, auto select the file is opened
 - Change py env
-- Auto close brackets
-- Move selected/yanked to terminal
 - Add shortcut/settings for running, maybe create a settings file for running the code + py env (python main.py, python main.py -i ... -o ...)
-- add snippets
 - optimize (consuming more ram than lunarvim setup);
-- keymap to go to next diagnostic error
+- test colorscheme https://github.com/olivercederborg/poimandres.nvim

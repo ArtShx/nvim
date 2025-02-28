@@ -132,3 +132,33 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+local s = luasnip.snippet
+local t = luasnip.text_node
+local i = luasnip.insert_node
+local fmt = require("luasnip.extras.fmt").fmt
+
+-- Custom snippets
+luasnip.add_snippets('python', {
+  s('bb', {
+    t('breakpoint()')
+  }),
+  -- Snippet for {}
+  s("{}", fmt([[
+    {{
+      "{}": {},
+    }}
+    ]], {
+      i(1, "key"), i(2, "value")
+    }
+  )),
+  s("()", fmt([[
+    (
+      {}
+    )
+    ]], {
+      i(1, "text")
+    }
+  )),
+
+})

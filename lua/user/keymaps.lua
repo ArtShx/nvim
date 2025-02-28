@@ -3,7 +3,8 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+-- local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -21,9 +22,11 @@ vim.g.maplocalleader = " "
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-H>", "<C-w>t", opts)  -- go to leftmost
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-S-l>", "<C-w>b", opts)  -- go to rightmost
 
 -- Normal GUI Editor Shortcuts
 -- keymap("n", "<C-w>", ":Bdelete<CR>", opts)
@@ -85,3 +88,15 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+
+-- keymap("n", "<Leader>q", ":q<CR>", opts)
+--
+-- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc = 'Search And Replace The Word Under The Cursor'})
+-- keymap("n", "<Leader>u", "[[:%s/\\<<C-r><C-w\\>/<C-r><C-w>/gI<Left><Left><Left>]]", opts)
+keymap("n", "<Leader>u", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
+
+
+-- vim.keymap.set("n", "<leader>s", function()
+--   local word = vim.fn.expand("<cword>")
+--   vim.cmd(":%s/" .. word .. "/" .. word .. "/gI<Left><Left><Left>")
+-- end, { desc = 'Search And Replace The Word Under The Cursor' })

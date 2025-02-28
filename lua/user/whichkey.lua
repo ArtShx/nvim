@@ -3,6 +3,22 @@ if not status_ok then
   return
 end
 
+local telescope = require("telescope.builtin")
+local telescope_search = function (text)
+  return function()
+    telescope.grep_string({ search = text })
+  end
+end
+
+local yank_path = function(is_absolute)
+  -- TODO: yank absolute or relative of current buffer
+  return function()
+    vim.fn.setreg("", "ABC") -- saving ABC into register ""
+    -- vim.fn.expand("%")    -- relative
+    -- vim.fn.expand('%:p')  -- absolute
+  end
+end
+
 local setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -91,12 +107,33 @@ local vmappings = {
   ["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
 }
 
+
+function attach_running_test()
+  local neotest = require("neotest")
+  local position_id = neotest.run.get_last_run()
+  -- local stat = neotest.status
+  -- print("stat")
+  -- print(vim.inspect(stat))
+  -- local posit = neotest.client.running_positions()
+  -- print(posit)
+  if position_id ~= nil then
+    -- TODO: need to check if process was completed or not
+    -- if completed, just open the output window
+    -- local out = neotest.Process(position_id)
+    -- local out = neotest.run.get_process(position_id)
+    -- print(out)
+    neotest.run.attach(position_id)
+  else
+    neotest.output.open({enter=true, short=false, auto_close=false})
+  end
+end
+
 local mappings = {
 
   ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = true})<cr>",
     "Buffers",
   },
   d = {
@@ -106,7 +143,9 @@ local mappings = {
     f = { "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", "Test Class" },
     o = { "<cmd>lua require('neotest').output_panel.toggle()<cr>", "Toggle output" },
     c = { "<cmd>lua require('neotest').output_panel.clear()<cr>", "Clear output"},
-    s = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop"}
+    s = { "<cmd>lua require('neotest').run.stop()<cr>", "Stop"},
+    p = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Summary"},
+    l = { ":lua attach_running_test()<cr>", "Attach"},
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
@@ -114,10 +153,10 @@ local mappings = {
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy{previewer = true})<cr>",
     "Find files",
   },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
   p = {
@@ -135,6 +174,7 @@ local mappings = {
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+    L = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", "Blame" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
@@ -176,6 +216,8 @@ local mappings = {
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+    Q = { "<cmd>lua require('telescope.actions').open_qflist()<cr>", "Quickfix" },
+    -- "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy{previewer = true})<cr>",
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
@@ -209,11 +251,14 @@ local mappings = {
   },
   n = {
     name = "Utilities",
-    j = { "<cmd>%s/'/\"/g<cr><cmd>%!jq .<cr>", "Format JSON" },
-    s = { "<cmd>mksession! .session.vim<cr>", "Save Session" },
-    a = { "<cmd>source .session.vim<cr>", "Apply Session" },
-    f = { "<cmd>Format<cr>", "Format file" },
-    i = { "<cmd>OR<cr>", "Format Imports" },
+    j = { "<cmd>%!python -m json.tool <cr>", "Format JSON" },
+    f = { ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", "Find and replace"},
+    b = { ":/breakpoint()<cr>", "Find breakpoints in file." },
+    B = { telescope_search("breakpoint"), "Find breakpoints in all files." },
+    t = { ":/TODO<cr>", "Find TODO in file." },
+    T = { telescope_search("TODO"), "Find TODOs in all files." },
+    -- y = { yank_path(false), "Copy relative path." },
+    -- Y = { telescope_search("TODO"), "Copy absolute path." },
   }
 }
 
