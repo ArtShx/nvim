@@ -76,6 +76,18 @@ return packer.startup(function(use)
 
   -- Surround selected cursor with quotes/parentheses/brackets/etc.
   use { "tpope/vim-surround", commit = "3d188ed2113431cf8dac77be61b842acb64433d9"}
+  use {
+    'andymass/vim-matchup',
+    setup = function()
+      -- may set any options here
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      vim.g.matchup_matchparen_enabled = 1
+      vim.g.matchup_matchparen_deferred = 1
+      vim.g.matchup_matchparen_hi_surround_always = 1
+      vim.g.matchup_matchparen_timeout = 200
+      vim.g.matchup_delim_noskips = 'string'
+    end
+  }
 
 	-- Git
 	use { "lewis6991/gitsigns.nvim", tag = "v0.9.0" }
