@@ -35,7 +35,7 @@ keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 
-keymap("n", "<Leader>q", ":q<CR>", opts)
+keymap("n", "<Leader>q", ":q<CR>:DiffviewClose<CR>", opts)
 keymap("n", "|", ":vsplit<CR>", opts) -- open vertical split
 keymap("n", "<C-a>", "gg<S-v>G", opts) -- select all
 
@@ -73,6 +73,15 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
+
+-- Open Diffview
+keymap("n", "<leader>gv", function ()
+  vim.cmd(":DiffviewFileHistory %")
+end, opts)
+
+keymap("v", "<leader>gv", function ()
+  vim.cmd("'<,'> DiffviewFileHistory")
+end, opts)
 
 -- Visual Block --
 -- Move text up and down
