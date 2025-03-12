@@ -143,6 +143,10 @@ luasnip.add_snippets('python', {
   s('bb', {
     t('breakpoint()')
   }),
+
+  s('skip', {
+    t('@pytest.mark.skip(reason="")')
+  }),
   -- Snippet for {}
   s("{}", fmt([[
     {{
