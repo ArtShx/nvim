@@ -109,3 +109,17 @@ keymap("n", "<Leader>u", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 --   local word = vim.fn.expand("<cword>")
 --   vim.cmd(":%s/" .. word .. "/" .. word .. "/gI<Left><Left><Left>")
 -- end, { desc = 'Search And Replace The Word Under The Cursor' })
+
+
+-- Marker and Jumper
+-- When moving to a jumper with ', always use uppercase letters
+vim.keymap.set('n', "'", function()
+  local mark = vim.fn.getcharstr()
+  vim.cmd("normal! '" .. string.upper(mark))
+end)
+
+-- When setting a marker, always use uppercase letters
+keymap("n", "m", function ()
+  local mark = vim.fn.getcharstr()
+  vim.cmd("normal! m" .. string.upper(mark))
+end)
