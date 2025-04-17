@@ -98,6 +98,8 @@ return packer.startup(function(use)
   use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
   use { "rebelot/kanagawa.nvim" }
   use { "olivercederborg/poimandres.nvim" }
+  use { "sainnhe/gruvbox-material" }
+  use { "catppuccin/nvim", as = "catppuccin" }
 
 
 	-- Cmp (completion engine)
