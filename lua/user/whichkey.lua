@@ -259,6 +259,7 @@ local mappings = {
     T = { telescope_search("TODO"), "Find TODOs in all files." },
     -- y = { yank_path(false), "Copy relative path." },
     -- Y = { telescope_search("TODO"), "Copy absolute path." },
+    g = {":!start explorer %:p:h<CR>", "Open File Explorer"},  -- works only on windows
   }
 }
 
