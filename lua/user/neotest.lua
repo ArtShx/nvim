@@ -10,5 +10,10 @@ require("neotest").setup({
       runner = "pytest",
       python = "python.exe"
     })
+  },
+  discovery = {
+    filter_dir = function(name, rel_path, root)
+        return name ~= "venv_charm"
+    end,
   }
 })

@@ -33,7 +33,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- keymap("n", "<C-w>", ":Bdelete this<CR>", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
-keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 
 keymap("n", "<Leader>q", ":q<CR>:DiffviewClose<CR>", opts)
 keymap("n", "|", ":vsplit<CR>", opts) -- open vertical split
@@ -112,10 +111,10 @@ keymap("n", "<Leader>u", ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>", opts)
 
 
 -- Marker and Jumper
--- When moving to a jumper with ', always use uppercase letters
+-- When moving to a jumper with ', always use uppercase letters and redraw cursor at center of window
 vim.keymap.set('n', "'", function()
   local mark = vim.fn.getcharstr()
-  vim.cmd("normal! '" .. string.upper(mark))
+  vim.cmd("normal! '" .. string.upper(mark) .. "zz")
 end)
 
 -- When setting a marker, always use uppercase letters

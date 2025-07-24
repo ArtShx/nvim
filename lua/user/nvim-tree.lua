@@ -11,6 +11,7 @@ nvim_tree.setup {
   },
   filters = {
     dotfiles = true,
+    custom = { 'venv*'}
   },
   renderer = {
     root_folder_modifier = ":t",
