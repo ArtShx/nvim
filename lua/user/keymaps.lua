@@ -35,6 +35,7 @@ keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("i", "<C-s>", "<ESC>:w<CR>", opts)
 
 keymap("n", "<Leader>q", ":q<CR>:DiffviewClose<CR>", opts)
+keymap("n", "<Leader>Q", ":qa<CR>", opts)
 keymap("n", "|", ":vsplit<CR>", opts) -- open vertical split
 keymap("n", "<C-a>", "gg<S-v>G", opts) -- select all
 
@@ -122,3 +123,6 @@ keymap("n", "m", function ()
   local mark = vim.fn.getcharstr()
   vim.cmd("normal! m" .. string.upper(mark))
 end)
+
+-- Increase number
+keymap("n", "<C-z>", "<C-a>", opts)

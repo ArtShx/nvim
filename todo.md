@@ -1,4 +1,5 @@
 # TODO
+- when pressing <A-J> or <A-K>, remap to {m or }m
 - https://github.com/rebelot/kanagawa.nvim?tab=readme-ov-file - colorscheme
 - https://github.com/olivercederborg/poimandres.nvim - colorscheme
 - qflist:
@@ -12,3 +13,7 @@
 - Add shortcut/settings for running, maybe create a settings file for running the code + py env (python main.py, python main.py -i ... -o ...)
 - optimize (consuming more ram than lunarvim setup);
 - test colorscheme https://github.com/olivercederborg/poimandres.nvim
+- Preview file nvim-tree: https://github.com/b0o/nvim-tree-preview.lua/
+- Replace all in project
+    - Ignore venv
+    - Only on git-tracked files
