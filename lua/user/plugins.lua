@@ -103,12 +103,12 @@ return packer.startup(function(use)
 
 
 	-- Cmp (completion engine)
-  use { "hrsh7th/nvim-cmp"} -- The completion plugin
-  use { "hrsh7th/cmp-buffer"} -- buffer completions
-  use { "hrsh7th/cmp-path"} -- path completions
-  use { "hrsh7th/cmp-cmdline"}
-	use { "hrsh7th/cmp-nvim-lsp"}
-	use { "hrsh7th/cmp-nvim-lua"}
+  use { "hrsh7th/nvim-cmp", tag = "v0.0.1"} -- The completion plugin
+  use { "hrsh7th/cmp-buffer", commit="3022dbc9166796b644a841a02de8dd1cc1d311fa"} -- buffer completions
+  use { "hrsh7th/cmp-path", commit="91ff86cd9c29299a64f968ebb45846c485725f23"} -- path completions
+  use { "hrsh7th/cmp-cmdline", commit="d250c63aa13ead745e3a40f61fdd3470efde3923"}
+	use { "hrsh7th/cmp-nvim-lsp", commit="39e2eda76828d88b773cc27a3f61d2ad782c922d"}
+	use { "hrsh7th/cmp-nvim-lua", commit="f12408bdb54c39c23e67cab726264c10db33ada8"}
   use { "saadparwaiz1/cmp_luasnip"} -- snippet completions
 
 	-- Snippets
@@ -137,6 +137,8 @@ return packer.startup(function(use)
   use { "mfussenegger/nvim-dap-python", requires = { "mfussenegger/nvim-dap" } }
   use { "nvim-neotest/neotest", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
   use { "nvim-neotest/neotest-python" }
+
+  -- use { "awslabs/amazonq.nvim" }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
