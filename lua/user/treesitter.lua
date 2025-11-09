@@ -6,7 +6,7 @@ end
 require 'nvim-treesitter.install'.compilers = { "zig", "gcc" }
  local to_install = { "bash", "c", "javascript", "json", "lua", "python", "yaml", "markdown", "markdown_inline" , "vim", "vimdoc", "typescript", "luadoc" }
 configs.setup({
-  ensure_installed = { to_install }, -- one of "all" or a list of languages
+  ensure_installed = to_install , -- one of "all" or a list of languages
 	ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension

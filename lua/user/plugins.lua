@@ -138,7 +138,7 @@ return packer.startup(function(use)
   use { "nvim-neotest/neotest", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
   use { "nvim-neotest/neotest-python" }
 
-  -- use { "awslabs/amazonq.nvim" }
+  use { "awslabs/amazonq.nvim" }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

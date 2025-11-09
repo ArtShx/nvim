@@ -23,3 +23,4 @@ require "user.autopairs"
 -- require "user.rust-tools"
 
 require "user.neotest"
+require "user.amazonq"

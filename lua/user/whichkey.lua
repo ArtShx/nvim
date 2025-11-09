@@ -260,6 +260,13 @@ local mappings = {
     -- y = { yank_path(false), "Copy relative path." },
     -- Y = { telescope_search("TODO"), "Copy absolute path." },
     g = {":!start explorer %:p:h<CR>", "Open File Explorer"},  -- works only on windows
+  },
+  m = {
+    name = "AmazonQ",
+    q = { "iAmazonQ<ESC>", "Insert AmazonQ" },
+    a = { "<cmd>AmazonQ<CR>", "AmazonQ Chat" },
+    r = { "<cmd>AmazonQ refactor<CR>", "AmazonQ refactor" },
+    f = { "<cmd>AmazonQ fix<CR>", "AmazonQ fix" },
   }
 }
 

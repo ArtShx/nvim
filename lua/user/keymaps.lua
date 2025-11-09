@@ -126,3 +126,16 @@ end)
 
 -- Increase number
 keymap("n", "<C-z>", "<C-a>", opts)
+
+-- Ignoring all errors and sending them to notify
+local orig_schedule = vim.schedule
+vim.schedule = function(cb)
+    orig_schedule(function()
+        local success, err = pcall(cb)
+        if not success then
+            -- Silently ignore schedule callback errors
+            vim.notify(err, "error")
+            return
+        end
+    end)
+end
