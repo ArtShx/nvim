@@ -103,7 +103,7 @@ return packer.startup(function(use)
 
 
 	-- Cmp (completion engine)
-  use { "hrsh7th/nvim-cmp", tag = "v0.0.1"} -- The completion plugin
+  use { "hrsh7th/nvim-cmp", commit="d97d85e"} -- The completion plugin
   use { "hrsh7th/cmp-buffer", commit="3022dbc9166796b644a841a02de8dd1cc1d311fa"} -- buffer completions
   use { "hrsh7th/cmp-path", commit="91ff86cd9c29299a64f968ebb45846c485725f23"} -- path completions
   use { "hrsh7th/cmp-cmdline", commit="d250c63aa13ead745e3a40f61fdd3470efde3923"}
@@ -112,7 +112,7 @@ return packer.startup(function(use)
   use { "saadparwaiz1/cmp_luasnip"} -- snippet completions
 
 	-- Snippets
-  use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
+  use { "L3MON4D3/LuaSnip", commit="3732756842a2f7e0e76a7b0487e9692072857277"} --snippet engine
   use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
 
 	-- LSP

@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 require 'nvim-treesitter.install'.compilers = { "zig", "gcc" }
- local to_install = { "bash", "c", "javascript", "json", "lua", "python", "yaml", "markdown", "markdown_inline" , "vim", "vimdoc", "typescript", "luadoc" }
+ local to_install = { "bash", "c", "javascript", "json", "lua", "python", "yaml", "markdown", "markdown_inline" , "vim", "vimdoc", "typescript", "luadoc", "go" }
 configs.setup({
   ensure_installed = to_install , -- one of "all" or a list of languages
 	ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
