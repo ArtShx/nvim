@@ -17,3 +17,4 @@
 - Replace all in project
     - Ignore venv
     - Only on git-tracked files
+- Markdown render: https://github.com/MeanderingProgrammer/render-markdown.nvim
