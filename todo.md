@@ -18,3 +18,4 @@
     - Ignore venv
     - Only on git-tracked files
 - Markdown render: https://github.com/MeanderingProgrammer/render-markdown.nvim
+- Cursor animation [smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)
