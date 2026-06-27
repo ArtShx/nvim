@@ -39,8 +39,8 @@ luac.out
 *.x86_64
 *.hex
 
-# Packer generated code
-**/packer_compiled.lua
+# Lazy.nvim lockfile
+lazy-lock.json
 
 # Working session
 .session.vim
