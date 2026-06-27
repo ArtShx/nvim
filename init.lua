@@ -21,6 +21,5 @@ require "user.autopairs"
 -- require "user.project"
 -- require "user.autocommands"
 -- require "user.rust-tools"
-
-require "user.neotest"
-require "user.amazonq"
+--
+-- require "user.neotest"
